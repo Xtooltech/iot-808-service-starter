@@ -15,7 +15,9 @@ import org.springframework.context.annotation.Import;
 @Import({
 	DevStatServiceFallbackFactory.class
 	,InOrderServiceFallbackFactory.class
-	,OrderIdServiceFallbackFactory.class})
+	,OrderIdServiceFallbackFactory.class
+    ,ParamServiceFallbackFactory.class
+    ,PositionServiceFallbackFactory.class})
 @Documented
 public @interface EnableIot808ServiceClients {
 
