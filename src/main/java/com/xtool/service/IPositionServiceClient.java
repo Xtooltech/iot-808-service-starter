@@ -19,18 +19,14 @@ public interface IPositionServiceClient
     @RequestMapping(path="/add", method=RequestMethod.POST, headers= {"Content-Type=application/json"})
     RespState<Boolean> add(@RequestBody posModel position);
     
-    
     @RequestMapping(path="/addrange", method=RequestMethod.POST, headers= {"Content-Type=application/json"})
     RespState<Boolean> addrange(@RequestBody posModel[] positions);
-    
     
     @RequestMapping(path="/get", method=RequestMethod.POST, headers= {"Content-Type=application/json"})
     RespState<DataSearchResult<posModel>> get(@RequestBody posCondition condition);
     
-    
     @RequestMapping(path="/getbyid", method=RequestMethod.GET)
-    RespState<DataSearchResult<posModel>> getbyid(String id);
-    
+    RespState<posModel> getbyid(String id);
     
     @RequestMapping(path="/getlastedpos", method=RequestMethod.GET)
     RespState<DataSearchResult<posModel>> getlastedpos();

@@ -2,10 +2,12 @@ package com.xtool.service;
 
 import com.xtool.enterprise.RespState;
 import com.xtool.enterprise.data.DataSearchResult;
-import com.xtool.iot808data.inorder.inorderCondition;
-import com.xtool.iot808data.inorder.inorderModel;
+import com.xtool.iot808data.devparam.devparamCondition;
+import com.xtool.iot808data.devparam.devparamModel;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 
 
 @Component
@@ -17,7 +19,7 @@ public class ParamServiceFallbackFactory implements FallbackFactory<IParamServic
 		return new IParamServiceClient()
         {
             @Override
-            public RespState<Boolean> add(inorderModel data)
+            public RespState<Boolean> add(devparamModel data)
             {
                 RespState<Boolean> result=new RespState<Boolean>();
                 result.setCode(1000);
@@ -27,13 +29,24 @@ public class ParamServiceFallbackFactory implements FallbackFactory<IParamServic
             }
     
             @Override
-            public RespState<DataSearchResult<inorderModel>> get(inorderCondition condition)
+            public RespState<DataSearchResult<devparamModel>> get(devparamCondition condition)
             {
-                return null;
+                RespState<DataSearchResult<devparamModel>> result = new RespState<DataSearchResult<devparamModel>>();
+    
+                DataSearchResult<devparamModel> data = new DataSearchResult<devparamModel>();
+                data.pageIndex = 0;
+                data.pageSize = 0;
+                data.total = 0;
+                data.data = new ArrayList<devparamModel>(0);
+    
+                result.setCode(1000);
+                result.setData(data);
+                result.setMsg("remote get service not accessible");
+                return result;
             }
     
             @Override
-            public RespState<Boolean> remove(String oid)
+            public RespState<Boolean> upsert(devparamModel data)
             {
                 RespState<Boolean> result=new RespState<Boolean>();
                 result.setCode(1000);
