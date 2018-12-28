@@ -13,7 +13,8 @@ import org.springframework.context.annotation.Import;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Import({
-	DevStatServiceFallbackFactory.class
+    DeviceServiceFallbackFactory.class
+	,DevStatServiceFallbackFactory.class
 	,InOrderServiceFallbackFactory.class
 	,OrderIdServiceFallbackFactory.class
 	,DevonlServiceFallbackFactory.class
