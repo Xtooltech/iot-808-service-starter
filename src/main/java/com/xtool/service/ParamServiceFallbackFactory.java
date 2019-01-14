@@ -24,7 +24,7 @@ public class ParamServiceFallbackFactory implements FallbackFactory<IParamServic
                 RespState<Boolean> result=new RespState<Boolean>();
                 result.setCode(1000);
                 result.setData(false);
-                result.setMsg("remote add service not accessible");
+                result.setMsg("param service not accessible");
                 return result;
             }
     
@@ -41,7 +41,7 @@ public class ParamServiceFallbackFactory implements FallbackFactory<IParamServic
     
                 result.setCode(1000);
                 result.setData(data);
-                result.setMsg("remote get service not accessible");
+                result.setMsg("param service not accessible");
                 return result;
             }
     
@@ -51,7 +51,7 @@ public class ParamServiceFallbackFactory implements FallbackFactory<IParamServic
                 RespState<Boolean> result=new RespState<Boolean>();
                 result.setCode(1000);
                 result.setData(false);
-                result.setMsg("remote remove service not accessible");
+                result.setMsg("param service not accessible");
                 return result;
             }
 		};

@@ -11,7 +11,7 @@ import com.xtool.enterprise.data.DataSearchResult;
 import com.xtool.iot808data.devonl.devonlCondition;
 import com.xtool.iot808data.devonl.devonlModel;
 
-@FeignClient(value="iot-808-service-devonl",fallbackFactory=DevonlServiceFallbackFactory.class)
+@FeignClient(value="iot-808-devonl-service",fallbackFactory=DevonlServiceFallbackFactory.class)
 public interface IDevonlServiceClient {
 	@RequestMapping(path="/devonl/upsert"
 			,method=RequestMethod.POST
