@@ -39,6 +39,15 @@ public class DevonlServiceFallbackFactory implements FallbackFactory<IDevonlServ
 				result.setMsg("remote add service not accessible");
 				return result;
 			}
+            
+            @Override
+            public RespState<Boolean> bupsert(Boolean ignoreNull,devonlModel[] datas) {
+                RespState<Boolean> result=new RespState<Boolean>();
+                result.setCode(1000);
+                result.setData(false);
+                result.setMsg("remote add service not accessible");
+                return result;
+            }
 
 			@Override
 			public RespState<Boolean> remove(String sno) {

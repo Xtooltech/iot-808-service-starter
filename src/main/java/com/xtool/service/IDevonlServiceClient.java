@@ -22,6 +22,16 @@ public interface IDevonlServiceClient {
 			Boolean ignoreNull
 			, @RequestBody
 			devonlModel model);
+    
+    @RequestMapping(path="/devonl/bupsert"
+        ,method=RequestMethod.POST
+        ,headers= {"Content-Type=application/json"})
+    public RespState<Boolean> bupsert(
+        @RequestParam(name="ignoreNull",required=false)
+        @Nullable
+            Boolean ignoreNull
+        , @RequestBody
+              devonlModel[] models);
 	
 	@RequestMapping(value="/devonl/get"
 			,method= {RequestMethod.POST}
